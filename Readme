@@ -1,0 +1,40 @@
+The RoomMe and RoomMe room module work together to interface a Crestron system
+with RoomMe personal location sensors.  The RoomMe module interfaces with the
+RoomMe personal location sensors, parses the data sent to them by the RoomMe
+sensors and passes that data along to the RoomMe Room modules.  One RoomMe 
+Room module is required for each room that contains a RoomMe sensor.  
+
+RoomMe Module Parameters
+Port                    -   Port that the RoomMe sensors will use for http 
+                            communications to the Crestron system
+
+RoomMe Module Inputs
+Initialize              -   Pulsed at startup to initialize the module and 
+                            prepare it to receive data
+
+RoomMe Module Outputs
+Data$                   -   Messages that are passed to the RoomMe Room modules
+
+RoomMe Room Module Parameters
+Room_Name               -   Name of the Room that this module will control.  
+                            This name must exactly match the room name 
+                            specified in the RoomMe app for the sensor in 
+                            the room
+
+RoomMe Room Module Inputs
+Data$                   -   Message input from the RoomMe module output
+
+RoomMe Room Module Outputs
+Low_Battery             -   Output will pulse if a low battery message is 
+                            received from the RoomMe sensor in this room
+Occupied                -   High while the room is occupied.  Low when it 
+                            is not occupied
+Controlling_User_ID     -   0 when the room isn't occupied.  Otherwsie 
+                            the output will be the 1 based ID of the user 
+                            who the RoomMe sensor determines with the 
+                            highest priority and is in control of the room.
+                            Note - RoomMe user ID's are zero based so
+                            this value is the RoomMe user ID + 1
+Controlling_Username$   -   Name of the user that the RoomMe sensr has 
+                            determined has the highest priority and is in 
+                            control of the room.
