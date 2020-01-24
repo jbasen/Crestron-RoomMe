@@ -4,6 +4,18 @@ RoomMe personal location sensors, parses the data sent to them by the RoomMe
 sensors and passes that data along to the RoomMe Room modules.  One RoomMe 
 Room module is required for each room that contains a RoomMe sensor.  
 
+IMPORTANT - When you enter the address of your Crestron processor in the RoomMe app.  
+You must enter the ip address and port as follows:
+
+http://192.168.1.10:9000
+
+where 192.168.1.10 is your processors IP address and 9000 is the port you specified for 
+communication in the parameter field of the RoomMe v1.1 module.  If you don't include 
+the http:// in front of the address it won't work.
+
+Also, you must enter the room names in the parameter of the RoomMe Room Module v1.1 
+exactly as they are defined in the RoomMe app.  These are case sensitive.  
+
 RoomMe Module Parameters
 Port                    -   Port that the RoomMe sensors will use for http 
                             communications to the Crestron system
